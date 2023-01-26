@@ -1,6 +1,5 @@
 import Layout from "@/components/layout/Layout";
 import Header from "@/components/header/Header";
-import fetch from "isomorphic-unfetch";
 import bgTienda from "../public/img/bg-tienda/bg-tienda.jpg";
 import Guitarras from "@/components/guitarras/Guitarras";
 import Feature from "@/components/feature/Feature";
