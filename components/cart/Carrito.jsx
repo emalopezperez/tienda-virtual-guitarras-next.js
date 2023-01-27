@@ -1,66 +1,69 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { MyContext } from "@/context/MyContext";
 import Image from "next/image";
 
-const Carrito = ({elemento}) => {
-  const { carrito } = useContext(MyContext);
+const Carrito = () => {
+  const [total, setTotal] = useState(0);
 
-  
+  const { carrito, eliminarProducto, setCarrito } = useContext(MyContext);
+
+  useEffect(() => {
+    const calcularTotal = carrito.reduce(
+      (total, producto) => total + producto.cantidad * producto.precio,
+      0
+    );
+    setTotal(calcularTotal);
+  }, [carrito]);
+
+  const vaciarCart = () => {
+    setCarrito([]);
+  };
 
   if (carrito.length > 0) {
     return (
-      <>
-        <div className="flex flex-col">
-          <div className=" Informacion-Cart italic text-center mt-6">
-            <h2 className=" text-black text-2xl lg:text-4xl italic">
-              Informacion importante
-            </h2>
-            <p className="text-sm lg:text-base text-black mt-6 italic">
-              los medios de pagos con los que trabajamos son mediante Mercado de
-              Pago, Trasferencia Bancaria o Efectivo.
-            </p>
-          </div>
-
-          <div className=" mt-12 m-3 ">
-            <button
-              
-              className="  px-2 btn-Limpiar bg-teal-500 ">
-              Vaciar carrito
-            </button>
-          </div>
+      <div className=" max-w-md lg:max-w-xl mx-auto">
+        <div className="flex justify-end px-8 mt-10">
+          <button
+            onClick={vaciarCart}
+            className=" py-1 text-white rounded px-4 bg-red-800">
+            Vaciar
+          </button>
         </div>
+
         {carrito.map((elemento, index) => {
           return (
             <div
               key={index}
-              className="shadow p-5 mt-10 mb-3 flex lg:gap-2 gap-10 items-center">
-              <div className="md:w-1/6">
+              className="flex justify-center shadow p-4 mt-10 mb-3 px-6 lg:px-2 gap-2 lg:gap-8 items-center ">
+              <div className="w-auto md:w-1/6">
                 <Image
-                  width={150}
-                  height={20}
+                  width={100}
+                  height={10}
                   alt="imagen del producto"
-                  src={elemento.imagen}
+                  src={elemento.imagen.data.attributes.url}
                 />
               </div>
 
-              <div className="md:w-4/6 ">
+              <div className="w-2/2 lg:w-7/6 mx-6 lg:mx-20">
                 <p className=" text-sm lg:text-xl  text-black">
                   {elemento.nombre}
                 </p>
-                <p className=" text-sm lg:text-xl  text-black mt-2">
+                <p className=" text-sm lg:text-xl  text-black mt-4 lg:mt-8">
                   Cantidad: {elemento.cantidad}
                 </p>
-                <p className=" Price-Card text-sm lg:text-xl  mt-2">
-                  ${elemento.precio}
+                <p className=" Price-Card text-sm lg:text-xl  mt-4 lg:mt-8">
+                  $ {elemento.precio}
                 </p>
               </div>
 
               <div>
                 <button
-                  
+                  onClick={(id) => {
+                    eliminarProducto(elemento.id);
+                  }}
                   type="button"
-                  className="hover:bg-slate-200 flex gap-2  lg:px-5 lg:py-2 text-black rounded-md  uppercase shadow-md w-full text-center mt-3">
+                  className="bg-white text-red-800 p-1 rounded-sm uppercase w-full text-center mt-2 hover:shadow-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="lg:h-6 lg:w-6 w-5"
@@ -80,23 +83,38 @@ const Carrito = ({elemento}) => {
           );
         })}
 
-        <div className="flex justify-evenly  lg:mt-5  mt-0 py-2">
-          <p className="mt-10 text-gray-600 ">
-            Total: $<span className=""></span>
-          </p>
-          <Link href="/category/registro">
-            <button className="bg-red-900 rounded-full  text-lg text-white m-8 px-8">
-              Confirmar
-            </button>
-          </Link>
+        <div className="flex justify-evenly py-10">
+          <div>
+            <p className=" text-gray-600 ">
+              Total: ${total}
+              <span className=""></span>
+            </p>
+          </div>
+          <div>
+            <Link href="/confirmacion">
+              <button className=" py-1 text-white rounded px-4 bg-black">
+                Confirmar
+              </button>
+            </Link>
+          </div>
         </div>
-      </>
+      </div>
     );
   }
   return (
-    <>
-      <h2>hola</h2>
-    </>
+    <div className=" mt-28 mb-20">
+      <div className="flex justify-center ">
+        <p>Su carrito de compras se encuentra vacio!</p>
+      </div>
+
+      <div className="flex justify-center mt-20">
+        <Link href="/tienda">
+          <button className=" py-1 text-white rounded px-4 bg-black">
+            Tienda
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 };
 

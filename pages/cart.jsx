@@ -8,8 +8,8 @@ const Cart = () => {
 
   return (
     <Layout title={"Carrito de compras"} description={"Carrito de compras"}>
-      <div className="mt-40">
-        <h2 className="flex justify-center text-xl font-bold text-gray-900 sm:text-3xl">
+      <div className=" mt-32 lg:mt-40 mb-30">
+        <h2 className="flex justify-center text-2xl lg:text-3xl font-bold text-gray-900 sm:text-3xl">
           Carrito de compras
         </h2>
 

@@ -7,25 +7,25 @@ function Header({ nombre, typewriter, img, descripcion, writing, fondoBlog }) {
     <main className="">
       {fondoBlog ? (
         <Image
-          className="w-full h-4/6 md:h-screen object-cover  "
+          className="w-full max-h-[360px] lg:max-h-[540px] md:h-screen object-cover  "
           src={fondoDeBlog}
           width={700}
-          height={600}
-          alt="imagen header guitarras"
+          height={400}
+          alt="imagen header Blog"
         />
       ) : (
         <Image
-          className="w-full h-4/6 md:h-screen object-cover  "
+          className="w-full max-h-[360px] lg:max-h-[540px] md:h-screen object-cover  "
           src={img}
           width={700}
-          height={600}
+          height={400}
           alt="imagen header guitarras"
         />
       )}
 
-      <div className="w-full h-4/6 md:h-screen  absolute top-0   bg-white/40"></div>
+      <div className="w-full h-screen max-h-[360px] lg:max-h-[540px]  absolute top-0  bg-white/40"></div>
       <div className=" w-full h-4/6 md:h-screen absolute top-0">
-        <div className="relative flex justify-center w-full px-20 mt-[28px] md:mt-40 ">
+        <div className="relative flex justify-center w-full px-20 mt-[20px] md:mt-40 ">
           <div className="mx-auto max-w-full xl:mx-12 xl:pt-40 xl:pb-64 lg:pt-40 lg:pb-48 pt-24 pb-12  ">
             <div className="">
               <div>
@@ -47,7 +47,7 @@ function Header({ nombre, typewriter, img, descripcion, writing, fondoBlog }) {
                     ""
                   )}
                 </h1>
-                <p className="mt-10 pb-5 text-sm sm:text-xl  leading-6 tracking-10 md:leading-8  text-black">
+                <p className="mt-5 pb-5 text-sm sm:text-xl  leading-0 tracking-2 md:leading-8  text-black">
                   {descripcion}
                 </p>
               </div>

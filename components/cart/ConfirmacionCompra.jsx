@@ -1,22 +1,52 @@
-import Link from "next/link";
 import { useState } from "react";
-import { AiOutlineMail } from "react-icons/ai";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-
+import toast, { Toaster } from "react-hot-toast";
+import MensajeCompraFinalizada from "./MensajeCompraFinalizada";
 
 const ConfirmacionCompra = () => {
   const [email, setEmail] = useState("");
   const [nombre, setNombre] = useState("");
   const [number, setNumber] = useState("");
-  const [menssage, setMensagge] = useState("");
-  const [subject, setSubject] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [target, setTarget] = useState("");
+  const [info, setInfo] = useState({});
+  const [mensaje, setMensaje]= useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if ([email, number, nombre, target].includes("")) {
+      toast.error("Todos los campos son obligatorios!", {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#f48fb3",
+        },
+        iconTheme: {
+          primary: "#660033 ",
+          secondary: "#FFFAEE",
+        },
+      });
+    } else {
+      const order = {
+        nombre,
+        email,
+        number,
+        direccion,
+        target,
+      };
+      setInfo(order);
+      setMensaje(true)
+    }
   };
 
-  return (
+  if(mensaje){
+    return(
+      <div className="mt-40">
+        <MensajeCompraFinalizada info={info}/>
+      </div>
+    )
+  } 
+    return (
     <div>
       <div id="contact" className="mt-40  bg-gray-50 m-1">
         <div className="max-w-[1200px]  px-2 py-16 w-full m-auto p-2  pt-16 pb-20">
@@ -26,55 +56,12 @@ const ConfirmacionCompra = () => {
             </p>
           </div>
 
-          <div className=" grid lg:grid-cols-5 gap-8">
-            {/* left */}
-            <div className="sm:flex hidden col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4">
-              <div className="lg:p-4 h-full ">
-                <div></div>
-                <div>
-                  <h2 className="py-2  titulo-logo">The Guitarists</h2>
-                  <p className="py-4">
-                  Para concretar con la compra le pedimos que Ingrese sus datos
-                  </p>
-                  <p className="py-4">
-                    Desde ya, ¡muchas gracias! El equipo de{" "}
-                    <span className="titulo-logo cursor-pointer">Guitar</span>.
-                  </p>
-                </div>
-                <div>
-                  <p className="uppercase font-bold pt-8">
-                    OTROS MEDIOS de comunicacion:
-                  </p>
-                  <div className=" mt-6 flex items-center justify-between py-4">
-                    <a href="" target="_blank" rel="noreferrer">
-                      <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                        <FaLinkedinIn />
-                      </div>
-                    </a>
-                    <a href="" target="_blank" rel="noreferrer">
-                      <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                        <FaGithub />
-                      </div>
-                    </a>
-
-                    <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                      <AiOutlineMail />
-                    </div>
-                    <Link href="/">
-                      <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                        <BsFillPersonLinesFill />
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* right */}
-            <div className="col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
+          <div className="flex justify-center">
+            <div className=" w-full lg:w-7/12 h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4">
+              {<Toaster position="top-right" reverseOrder={false} />}
               <div className="p-4">
                 <form onSubmit={handleSubmit} action="" method="" encType="">
-                  <div className="grid md:grid-cols-2 gap-4 w-full py-2">
+                  <div className="grid  gap-2 w-full py-2">
                     <div className=" flex flex-col py-2">
                       <label className="uppercase text-sm py-2">Name</label>
                       <input
@@ -85,9 +72,7 @@ const ConfirmacionCompra = () => {
                       />
                     </div>
                     <div className="flex flex-col py-2">
-                      <label className="uppercase text-sm py-2">
-                        Phone Number
-                      </label>
+                      <label className="uppercase text-sm py-2">numero</label>
                       <input
                         onChange={(e) => setNumber(e.target.value)}
                         className="border-2 rounded-lg p-3 flex border-gray-300"
@@ -106,27 +91,27 @@ const ConfirmacionCompra = () => {
                     />
                   </div>
                   <div className="flex flex-col py-2">
-                    <label className="uppercase text-sm py-2">Subject</label>
+                    <label className="uppercase text-sm py-2">Direccion</label>
                     <input
-                      onChange={(e) => setSubject(e.target.value)}
+                      onChange={(e) => setDireccion(e.target.value)}
                       className="border-2 rounded-lg p-3 flex border-gray-300"
                       type="text"
-                      name="subject"
+                      name="direccion"
                     />
                   </div>
                   <div className="flex flex-col py-2">
-                  <label className="uppercase text-sm py-2">Subject</label>
-                  <input
-                    onChange={(e) => setSubject(e.target.value)}
-                    className="border-2 rounded-lg p-3 flex border-gray-300"
-                    type="text"
-                    name="subject"
-                  />
-                </div>
+                    <label className="uppercase text-sm py-2">Tarjetas</label>
+                    <input
+                      onChange={(e) => setTarget(e.target.value)}
+                      className="border-2 rounded-lg p-3 flex border-gray-300"
+                      type="text"
+                      name="target"
+                    />
+                  </div>
                   <button
                     type="submit"
                     className="w-full p-4 bg-black text-gray-100 mt-4">
-                    Send Message
+                    Enviar
                   </button>
                 </form>
               </div>
@@ -135,7 +120,9 @@ const ConfirmacionCompra = () => {
         </div>
       </div>
     </div>
-  );
+  
+  )
+  
 };
 
 export default ConfirmacionCompra;

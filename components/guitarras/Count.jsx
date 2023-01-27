@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 function Count({ onAdd }) {
   const [cantidad, setCantidad] = useState(1);
@@ -24,17 +25,19 @@ function Count({ onAdd }) {
         <button className="  w-6 rounded " onClick={disminuir}>
           -
         </button>
-        <h3 className="p-2">{cantidad}</h3>
+        <h3 className="p-2 text-sm">{cantidad}</h3>
         <button className="  w-6 rounded " onClick={aumentar}>
           +
         </button>
       </div>
       <div className="flex px-4 justify-center mt-10 ">
-        <button
-          className="py-1 text-white rounded px-4 bg-red-900"
-          onClick={confirmar}>
-          Confirmar
-        </button>
+        <Link href={"/cart"}>
+          <button
+            className="py-1 text-white rounded px-4 bg-black"
+            onClick={confirmar}>
+            Confirmar
+          </button>
+        </Link>
       </div>
     </>
   );

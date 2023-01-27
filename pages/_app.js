@@ -50,6 +50,7 @@ function App({ Component, pageProps }) {
         eliminarProducto,
         actualizarCantidad,
         carrito,
+        setCarrito
       }}>
       <Component {...pageProps} />
     </MyContext.Provider>

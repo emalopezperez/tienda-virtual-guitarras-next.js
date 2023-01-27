@@ -90,7 +90,7 @@ function Footer() {
       <div className=" py-12 sm:px-6 lg:py-16 lg:px-8 px-20 max-w-[1200px] mx-auto">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <h2> The Guitarists</h2>
+            <h2> The Guitar</h2>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
                 <a
@@ -177,7 +177,7 @@ function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-200 pt-8">
           <p className="text-base text-gray-400 xl:text-center">
-            &copy; 2020 Murkiva by Boomslag, Inc. All rights reserved.
+            &copy; 2020 Murkiva by The Guitar, Inc. All rights reserved.
           </p>
         </div>
       </div>

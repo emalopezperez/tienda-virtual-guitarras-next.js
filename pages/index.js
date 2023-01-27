@@ -36,23 +36,22 @@ export default function Index({ guitarras, posts, descuentos }) {
     <Layout
       title={"Inicio"}
       description={
-        "Descubre nuestra pasión por las guitarras y los instrumentos musicales en nuestra página. Como empresa especializada en venta de guitarras, ofrecemos una amplia variedad de marcas y modelos para todos los niveles de habilidad. Además, nuestro blog cuenta con consejos y tutoriales sobre cómo tocar y cuidar tu guitarra"
-      }
-    >
+        "Descubre nuestra pasión por las guitarras y los instrumentos musicales en nuestra página."
+      }>
       <Header
         writing={true}
-        nombre={"The Guitarists"}
+        nombre={"The Guitar"}
         typewriter={["calidad", "garantia", "confianza"]}
         img={bgHome}
         descripcion={
-          " Nos enfocamos en crear sitios y aplicaciones web con diseño responsivo pa que se adapte a los diferentes dispoitivos, garantizando la experiencia del usuario"
+          " Nos enfocamos en crear sitios y aplicaciones web con diseño responsivo pa que se adapt"
         }
       />
       <main className="mt-20">
-        <h2 className="flex justify-center text-4xl font-bold text-gray-800 md:text-5xl mx-4 mb-3">
+        <h2 className="flex justify-center font-bold text-gray-900 text-2xl lg:text-3xl ">
           Nuestra coleccion
         </h2>
-        <div className=" flex justify-center flex-row flex-wrap mx-auto gap-20  mb-10">
+        <div className=" flex justify-center flex-row flex-wrap mx-auto gap-20 mt-20 mb-10">
           {guitarras.map((guitarra) => (
             <Guitarras key={guitarra.id} guitarra={guitarra.attributes} />
           ))}
@@ -75,7 +74,7 @@ export default function Index({ guitarras, posts, descuentos }) {
       </section>
 
       <div>
-      <Feature/>
+        <Feature />
       </div>
 
       <div>

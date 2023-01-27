@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { BsFillPersonLinesFill } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Nav = () => {
@@ -22,10 +20,26 @@ const Nav = () => {
     if (document.getElementById("navbar")) {
       if (window.scrollY >= 10) {
         document.getElementById("navbar").classList.add("shadow-navbar");
-        document.getElementById("navbar").classList.add("bg-white");
+        document.getElementById("navbar").classList.add("bg-black/90");
+        document.getElementById("text-color").classList.add("text-white");
+        document.getElementById("title-color").classList.add("text-white");
+        document
+          .getElementById("title-color-mobil")
+          .classList.add("text-white");
+        document
+          .getElementById("title-color-boton")
+          .classList.add("text-white");
       } else {
         document.getElementById("navbar").classList.remove("shadow-navbar");
-        document.getElementById("navbar").classList.remove("bg-white");
+        document.getElementById("navbar").classList.remove("bg-black/90");
+        document.getElementById("text-color").classList.remove("text-white");
+        document.getElementById("title-color").classList.remove("text-white");
+        document
+          .getElementById("title-color-mobil")
+          .classList.remove("text-white");
+        document
+          .getElementById("title-color-boton")
+          .classList.remove("text-white");
       }
     }
   }
@@ -40,50 +54,53 @@ const Nav = () => {
         <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
           <div>
             <Link
+              id="title-color"
               href="/"
-              className="text-2xl inline-flex font-semi-bold leading-6 text-gray-900  hover:border-gray-900  transition duration-300 ease-in-out mx-4 ">
-              The Guitarists
+              className="text-2xl inline-flex font-semi-bold leading-6 hover:border-gray-900  transition duration-300 ease-in-out mx-4 mt-2 ">
+              The Guitar
             </Link>
           </div>
           <Link href="/" className="ml-4 mt-2"></Link>
-          <div className="ml-4 mt-2 flex-shrink-0">
+          <div id="text-color" className="ml-4 mt-2 flex-shrink-0">
             <Link
               href="/"
-              className="text-smg inline-flex font-semibold leading-6 text-gray-900  hover:border-gray-900  transition duration-300 ease-in-out mx-4 border-b-2 border-white">
+              className="text-smg inline-flex font-semibold leading- hover:border-gray-900  transition duration-300 ease-in-out mx-4 border-b-2 border-white">
               Inicio
             </Link>
 
             <Link
               href="/tienda"
-              className="text-sm inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
+              className="text-sm inline-flex font-semibold leading-6 border-b-2 border-white hover:border-gray-900 transition duration-300 ease-in-out mx-4">
               Tienda
             </Link>
 
             <Link
               href="/blog"
-              className="text-sm inline-flex font-semibold  leading-6 text-gray-900 border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
+              className="text-sm inline-flex font-semibold  leading-6  border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
               Blog
             </Link>
             <Link
               href="/nosotros"
-              className="text-sm inline-flex font-semibold   leading-6 text-gray-900 border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
+              className="text-sm inline-flex font-semibold   leading-6 border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
               Nosotros
             </Link>
             <Link
               href="/nosotros"
-              className="text-sm inline-flex font-semibold  leading-6 text-gray-900 border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
+              className="text-sm inline-flex font-semibold  leading-6  border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
               Contacto
             </Link>
             <Link
               href="/cart"
-              className="inline-flex ml-12 items-center rounded-sm border border-transparent bg-gray-900 -button px-3 py-1 text-base font-semibold text-white shadow-sm hover:bg-gray-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+              className="inline-flex ml-12 px-4 items-center rounded-sm border border-transparent bg-black/90 -button  py-1 text-base font-semibold text-white shadow-sm hover:bg-gray-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
               <AiOutlineShoppingCart size={18} />
             </Link>
           </div>
         </div>
         <div
           className={
-            nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-white" : ""
+            nav
+              ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/90"
+              : ""
           }>
           {/* Side Drawer Menu */}
           <div
@@ -92,32 +109,30 @@ const Nav = () => {
                 ? " fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen  p-10 ease-in duration-500"
                 : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
             }>
-            <div>
-              <div className="flex w-full items-center justify-between">
-                <Link href="/">
-                  <h1 className="text-gradient">The Guitarist</h1>
-                </Link>
-                <div
-                  onClick={handleNav}
-                  className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer ">
-                  <AiOutlineClose />
-                </div>
-              </div>
-              <div className="border-b border-gray-300 my-4 pt-6">
-                <p className="uppercase text-sm tracking-widest text-gray-600">
-                  Somos tu mejor opcion
-                </p>
+            <div className="flex gap-20 w-full items-center ">
+              <Link href="/">
+                <h1 className="text-xl text-white">The Guitar</h1>
+              </Link>
+              <div
+                onClick={handleNav}
+                className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer bg-white">
+                <AiOutlineClose />
               </div>
             </div>
-            <div className="py-4 flex flex-col">
+            <div className="border-b border-gray-300 my-4 pt-6">
+              <p className="uppercase text-sm tracking-widest text-white">
+                Somos tu mejor opcion
+              </p>
+            </div>
+            <div className="py-4 flex flex-col text-white">
               <ul className="uppercase">
                 <Link href="/">
-                  <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  <li onClick={() => setNav(false)} className="py-2 text-sm">
                     Inicio
                   </li>
                 </Link>
                 <Link href="/nosotros">
-                  <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  <li onClick={() => setNav(false)} className="py-2 text-sm">
                     Sobre nosotros
                   </li>
                 </Link>
@@ -128,64 +143,37 @@ const Nav = () => {
                   </li>
                 </Link>
                 <Link href="/blog">
-                  <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  <li onClick={() => setNav(false)} className="py-2 text-sm">
                     blog
                   </li>
                 </Link>
                 <Link href="/nosotros">
-                  <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  <li onClick={() => setNav(false)} className="py-2 text-sm">
                     Contacto
                   </li>
                 </Link>
                 <Link
                   href="/contacto"
-                  className="inline-flex mt-4 items-center rounded-sm border border-transparent bg-gray-900 -button px-3 py-1 text-base font-semibold text-white shadow-sm hover:bg-gray-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
-                  <AiOutlineShoppingCart size={20} />
+                  className="inline-flex mt-4 items-center rounded-sm border border-transparent  px-3 py-1 text-base font-semibold text-white ">
+                  <AiOutlineShoppingCart size={25} />
                 </Link>
               </ul>
-              <div className="mt-[40px]">
-                <p className="uppercase tracking-widest text-gradient">
-                  Conectemos
-                </p>
-                <div className="flex items-center justify-between py-6 my-4 w-full sm:w-[80%]">
-                  <a href="" target="_blank" rel="noreferrer">
-                    <div className="boton rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                      <FaLinkedinIn />
-                    </div>
-                  </a>
-                  <a href="" target="_blank" rel="noreferrer">
-                    <div className="boton rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                      <FaGithub />
-                    </div>
-                  </a>
-                  <Link href="/">
-                    <div
-                      onClick={() => setNav(!nav)}
-                      className="boton rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                      <AiOutlineMail />
-                    </div>
-                  </Link>
-                  <Link href="/">
-                    <div
-                      onClick={() => setNav(!nav)}
-                      className="boton rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
-                      <BsFillPersonLinesFill />
-                    </div>
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-        <div className=" flex justify-between  lg:hidden  sm:flex-nowrap ">
-          <div className="">
-            <Link href="/" className=" ">
-              <h1 className="text-2xl ">The Guit</h1>
-            </Link>
-          </div>
-          <div onClick={handleNav} className="md:hidden cursor-pointer ">
-            <AiOutlineMenu size={25} />
-          </div>
+      </div>
+
+      <div className=" w-full flex justify-between px-4  lg:hidden sm:flex-nowrap text-black">
+        <div id="title-color-mobil" className="">
+          <Link href="/" className=" ">
+            <h1 className="text-base sm:text-2xl ">The Guitar</h1>
+          </Link>
+        </div>
+        <div
+          id="title-color-boton"
+          onClick={handleNav}
+          className="md:hidden cursor-pointer  ">
+          <AiOutlineMenu size={25} />
         </div>
       </div>
     </nav>
