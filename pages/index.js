@@ -1,6 +1,5 @@
 import Layout from "@/components/layout/Layout";
 import Header from "@/components/header/Header";
-import bgHome from "../public/img/bg-home/bg-home.jpg";
 import Guitarras from "@/components/guitarras/Guitarras";
 import BlogSection from "@/components/blog/BlogSection";
 import Incentive from "@/components/Incentive/Incentive";
@@ -11,27 +10,46 @@ export const getStaticProps = async () => {
   const guitarrasPromise = fetch(
     `${process.env.API_URL}/guitarras?populate=imagen`
   ).then((res) => res.json());
+
   const postsPromise = fetch(
     `${process.env.API_URL}/blogs?populate=imagen`
+  ).then((res) => res.json());
+
+  const headerPromise = fetch(
+    `${process.env.API_URL}/header-home?populate=imagen`
   ).then((res) => res.json());
 
   const descuentoPromise = fetch(
     `${process.env.API_URL}/promocion?populate=imagen`
   ).then((res) => res.json());
 
-  const [{ data: guitarras }, { data: posts }, { data: descuentos }] =
-    await Promise.all([guitarrasPromise, postsPromise, descuentoPromise]);
+  const [
+    { data: guitarras },
+    { data: posts },
+    { data: descuentos },
+    { data: headerPost },
+  ] = await Promise.all([
+    guitarrasPromise,
+    postsPromise,
+    descuentoPromise,
+    headerPromise,
+  ]);
 
   return {
     props: {
       guitarras,
       posts,
       descuentos,
+      headerPost,
     },
   };
 };
 
-export default function Index({ guitarras, posts, descuentos }) {
+export default function Index({ guitarras, posts, descuentos, headerPost }) {
+  const { nombre, imagen } = headerPost.attributes;
+
+  const bgHome = imagen?.data?.attributes?.url;
+
   return (
     <Layout
       title={"Inicio"}
@@ -48,10 +66,10 @@ export default function Index({ guitarras, posts, descuentos }) {
         }
       />
       <main className="mt-20">
-        <h2 className="flex justify-center font-bold text-gray-900 text-2xl lg:text-3xl ">
+        <h2 className="flex justify-center text-2xl font-bold text-gray-900 lg:text-3xl ">
           Nuestra coleccion
         </h2>
-        <div className=" flex justify-center flex-row flex-wrap mx-auto gap-20 mt-20 mb-10">
+        <div className="flex flex-row flex-wrap justify-center gap-20 mx-auto mt-20 mb-10 ">
           {guitarras.map((guitarra) => (
             <Guitarras key={guitarra.id} guitarra={guitarra.attributes} />
           ))}
@@ -62,7 +80,7 @@ export default function Index({ guitarras, posts, descuentos }) {
       </div>
       <section>
         <div className="flex justify-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl pb-5">
+          <h2 className="pb-5 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Nuestro blog
           </h2>
         </div>

@@ -17,7 +17,7 @@ const blog = ({ data }) => {
     <Layout title={"Blog"}>
       <Header nombre={"Blog"} typewriter={[""]} img={bgBlog} descripcion={false}/>
 
-      <h2 className="flex justify-center font-bold text-gray-900 text-2xl lg:text-3xl mt-20">
+      <h2 className="flex justify-center mt-20 text-2xl font-bold text-gray-900 lg:text-3xl">
           Nuestro blog
         </h2>
       <div className="grid">
