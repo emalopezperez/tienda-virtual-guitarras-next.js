@@ -24,7 +24,8 @@ const Feature = () => {
             <a href="#" className="relative block group">
               <Image
                 src={banner1}
-                alt=""
+                alt="guitarras"
+                width={400}
                 className="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
               />
 
@@ -43,7 +44,8 @@ const Feature = () => {
             <a href="#" className="relative block group">
               <Image
                 src={banner3}
-                alt=""
+                alt="guitarras"
+                width={400}
                 className="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
               />
 
@@ -63,7 +65,8 @@ const Feature = () => {
             <a href="#" className="relative block group">
               <Image
                 src={banner2}
-                alt=""
+                alt="guitarras"
+                width={600}
                 className="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
               />
 

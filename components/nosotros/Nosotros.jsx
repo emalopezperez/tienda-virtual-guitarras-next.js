@@ -1,5 +1,6 @@
 import Image from "next/image";
 import nosotros from "../../public/img/nosotros.jpg";
+import persona from "../../public/img/person.jpg"
 
 const people = [
   {
@@ -29,14 +30,15 @@ const people = [
   // More people...
 ];
 
+
 const Nosotros = () => {
   return (
     <main className="container mt-3">
-      <div className="flex justify-center flex-col">
+      <div className="flex flex-col justify-center">
         <section className="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:items-center">
           <div className="p-8 md:p-12 lg:px-16 lg:py-24">
-            <div className="mx-auto max-w-xl text-center sm:text-left">
-              <h2 className="text-2xl font-bold text-gray-900 md:text-3xl pb-8">
+            <div className="max-w-xl mx-auto text-center sm:text-left">
+              <h2 className="pb-8 text-2xl font-bold text-gray-900 md:text-3xl">
                 The Guitarists
               </h2>
 
@@ -64,7 +66,7 @@ const Nosotros = () => {
         </section>
       </div>
 
-      <div className="space-y-12 mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
+      <div className="px-4 py-12 mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
         <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Equipo
@@ -81,7 +83,11 @@ const Nosotros = () => {
             <li key={person.name}>
               <div className="space-y-4">
                 <div className="aspect-w-3 aspect-h-2">
-                  
+                <Image
+                alt="programador"
+                src={persona}
+                className="h-full w-full object-cover sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-tl-[30px] md:h-[calc(100%_-_4rem)] md:rounded-tl-[60px]"
+              />
                 </div>
 
                 <div className="space-y-2">
@@ -96,7 +102,7 @@ const Nosotros = () => {
                         className="text-gray-400 hover:text-gray-500">
                         <span className="sr-only">Twitter</span>
                         <svg
-                          className="h-5 w-5"
+                          className="w-5 h-5"
                           aria-hidden="true"
                           fill="currentColor"
                           viewBox="0 0 20 20">
@@ -110,7 +116,7 @@ const Nosotros = () => {
                         className="text-gray-400 hover:text-gray-500">
                         <span className="sr-only">LinkedIn</span>
                         <svg
-                          className="h-5 w-5"
+                          className="w-5 h-5"
                           aria-hidden="true"
                           fill="currentColor"
                           viewBox="0 0 20 20">

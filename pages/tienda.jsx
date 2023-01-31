@@ -36,8 +36,6 @@ const tienda = ({ guitarras, headerTienda }) => {
 
   const bgTienda = imagen?.data?.attributes?.url;
 
-
-
   return (
     <Layout
       title={"Tienda Virtual"}

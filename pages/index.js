@@ -46,7 +46,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Index({ guitarras, posts, descuentos, headerPost }) {
-  const { nombre, imagen } = headerPost.attributes;
+  const { imagen } = headerPost.attributes;
 
   const bgHome = imagen?.data?.attributes?.url;
 
@@ -69,7 +69,7 @@ export default function Index({ guitarras, posts, descuentos, headerPost }) {
         <h2 className="flex justify-center text-2xl font-bold text-gray-900 lg:text-3xl ">
           Nuestra coleccion
         </h2>
-        <div className="flex flex-row flex-wrap justify-center gap-20 mx-auto mt-20 mb-10 ">
+        <div className="flex flex-row flex-wrap justify-center gap-10 mx-auto mt-20 mb-6 lg:gap-20 ">
           {guitarras.map((guitarra) => (
             <Guitarras key={guitarra.id} guitarra={guitarra.attributes} />
           ))}

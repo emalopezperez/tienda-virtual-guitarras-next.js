@@ -239,9 +239,9 @@ html.has-scroll-dragging {
 /* Grid Blog */
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-  padding: 3rem;
+  grid-template-columns: 20fr;
+  gap: 2rem;
+  padding: 1rem;
 }
 @media (min-width: 768px) {
   .grid {

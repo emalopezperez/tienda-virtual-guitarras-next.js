@@ -5,24 +5,24 @@ const Guitarras = ({ guitarra }) => {
   const { nombre, precio, descripcion, imagen, url } = guitarra;
 
   return (
-    <main className="max-w-[480px] flex justify-center md:w-1/2 rounded-lg bg-white m-6 lg:m-4">
-      <div className=" bg-white ">
+    <main className="max-w-[480px] flex justify-center md:w-1/2 rounded-lg bg-white m-6 lg:m-4 ">
+      <div className="bg-white ">
         <Image
           src={imagen.data.attributes.formats.medium.url}
           alt="imagen de los instrumentos"
-          width={800}
-          height={400}
-          className=" object-cover w-10/12 lg:w-10/12 md:rounded-r-sm "
+          width={400}
+          height={200}
+          className="object-cover w-10/12 lg:w-10/12 md:rounded-r-sm"
         />
       </div>
-      <div className=" w-4/12 lg:w-7/12">
+      <div className="w-4/12 lg:w-7/12">
         <div className="">
           <h1
-            className="m-4 flex justify-center text-black font-semibold text-3xl"
+            className="flex justify-center m-4 text-3xl font-semibold text-black"
             key={nombre}>
             {nombre}
           </h1>
-          <p className="  descripcion text-black/60 resumen texto  leading-7">
+          <p className="leading-7 descripcion text-black/60 resumen texto">
             {descripcion}
           </p>
           <div className=" mt-2 lg:mt-5 -ml-0.5 flex justify-center">
@@ -69,11 +69,11 @@ const Guitarras = ({ guitarra }) => {
           <div className="flex justify-center mt-4 text-xl">
             <span key={precio}>$ {precio}</span>
           </div>
-          <div className=" flex justify-center mt-2">
+          <div className="flex justify-center mt-2 ">
             <Link href={`/guitarras/${url}`}>
-              <span className="mt-1.5 inline-block bg-black/90 px-8 lg:px-10 py-1 lg:py-2 text-sm font-medium uppercase tracking-wide text-white">
+              <button className=" mt-1.5 flex aling-center hover:bg-gray-800 bg-black/90 px-8 lg:px-10  py-1 text-md font-medium  tracking-wide text-white rounded-sm">
                 Ver
-              </span>
+              </button>
             </Link>
           </div>
         </div>

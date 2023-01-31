@@ -49,50 +49,51 @@ const Nav = () => {
       id="navbar"
       data-scroll
       data-scroll-id="hey"
-      className="w-full px-20 py-4 top-0  shadow-navbar transition duration-300 ease-in-out z-40 fixed ">
+      className="fixed top-0 z-40 w-full px-20 py-4 transition duration-300 ease-in-out shadow-navbar ">
+
       <div className="px-4 sm:px-6">
-        <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
+        <div className="flex-wrap items-center justify-between hidden px-2 -mt-2 -ml-4 lg:flex sm:flex-nowrap md:px-14">
           <div>
             <Link
               id="title-color"
               href="/"
-              className="text-2xl inline-flex font-semi-bold leading-6 hover:border-gray-900  transition duration-300 ease-in-out mx-4 mt-2 ">
+              className="inline-flex mx-4 mt-2 text-2xl leading-6 transition duration-300 ease-in-out font-semi-bold hover:border-gray-900 ">
               The Guitar
             </Link>
           </div>
-          <Link href="/" className="ml-4 mt-2"></Link>
-          <div id="text-color" className="ml-4 mt-2 flex-shrink-0">
+          <Link href="/" className="mt-2 ml-4"></Link>
+          <div id="text-color" className="flex-shrink-0 mt-2 ml-4">
             <Link
               href="/"
-              className="text-smg inline-flex font-semibold leading- hover:border-gray-900  transition duration-300 ease-in-out mx-4 border-b-2 border-white">
+              className="inline-flex mx-4 font-semibold transition duration-300 ease-in-out border-b-2 border-white text-smg leading- hover:border-gray-900">
               Inicio
             </Link>
 
             <Link
               href="/tienda"
-              className="text-sm inline-flex font-semibold leading-6 border-b-2 border-white hover:border-gray-900 transition duration-300 ease-in-out mx-4">
+              className="inline-flex mx-4 text-sm font-semibold leading-6 transition duration-300 ease-in-out border-b-2 border-white hover:border-gray-900">
               Tienda
             </Link>
 
             <Link
               href="/blog"
-              className="text-sm inline-flex font-semibold  leading-6  border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
+              className="inline-flex mx-4 text-sm font-semibold leading-6 transition duration-300 ease-in-out border-b-2 border-white hover:border-gray-900">
               Blog
             </Link>
             <Link
               href="/nosotros"
-              className="text-sm inline-flex font-semibold   leading-6 border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
+              className="inline-flex mx-4 text-sm font-semibold leading-6 transition duration-300 ease-in-out border-b-2 border-white hover:border-gray-900">
               Nosotros
             </Link>
             <Link
               href="/nosotros"
-              className="text-sm inline-flex font-semibold  leading-6  border-b-2 border-white hover:border-gray-900  transition duration-300 ease-in-out mx-4">
+              className="inline-flex mx-4 text-sm font-semibold leading-6 transition duration-300 ease-in-out border-b-2 border-white hover:border-gray-900">
               Contacto
             </Link>
             <Link
               href="/cart"
-              className="inline-flex ml-12 px-4 items-center rounded-sm border border-transparent bg-black/90 -button  py-1 text-base font-semibold text-white shadow-sm hover:bg-gray-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
-              <AiOutlineShoppingCart size={18} />
+              className="inline-flex items-center px-4 py-1 ml-12 text-base font-semibold text-white transition duration-300 ease-in-out border border-transparent rounded-sm shadow-sm bg-black/90 -button hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+              <AiOutlineShoppingCart size={ 18 } />
             </Link>
           </div>
         </div>
@@ -102,60 +103,60 @@ const Nav = () => {
               ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/90"
               : ""
           }>
-          {/* Side Drawer Menu */}
+          {/* Side Drawer Menu */ }
           <div
             className={
               nav
                 ? " fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen  p-10 ease-in duration-500"
                 : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
             }>
-            <div className="flex gap-20 w-full items-center ">
+            <div className="flex items-center w-full gap-20 ">
               <Link href="/">
                 <h1 className="text-xl text-white">The Guitar</h1>
               </Link>
               <div
-                onClick={handleNav}
-                className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer bg-white">
+                onClick={ handleNav }
+                className="p-3 bg-white rounded-full shadow-lg cursor-pointer shadow-gray-400">
                 <AiOutlineClose />
               </div>
             </div>
-            <div className="border-b border-gray-300 my-4 pt-6">
-              <p className="uppercase text-sm tracking-widest text-white">
+            <div className="pt-6 my-4 border-b border-gray-300">
+              <p className="text-sm tracking-widest text-white uppercase">
                 Somos tu mejor opcion
               </p>
             </div>
-            <div className="py-4 flex flex-col text-white">
+            <div className="flex flex-col py-4 text-white">
               <ul className="uppercase">
                 <Link href="/">
-                  <li onClick={() => setNav(false)} className="py-2 text-sm">
+                  <li onClick={ () => setNav(false) } className="py-2 text-sm">
                     Inicio
                   </li>
                 </Link>
                 <Link href="/nosotros">
-                  <li onClick={() => setNav(false)} className="py-2 text-sm">
+                  <li onClick={ () => setNav(false) } className="py-2 text-sm">
                     Sobre nosotros
                   </li>
                 </Link>
 
                 <Link href="/tienda">
-                  <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  <li onClick={ () => setNav(false) } className="py-4 text-sm">
                     Tienda
                   </li>
                 </Link>
                 <Link href="/blog">
-                  <li onClick={() => setNav(false)} className="py-2 text-sm">
+                  <li onClick={ () => setNav(false) } className="py-2 text-sm">
                     blog
                   </li>
                 </Link>
                 <Link href="/nosotros">
-                  <li onClick={() => setNav(false)} className="py-2 text-sm">
+                  <li onClick={ () => setNav(false) } className="py-2 text-sm">
                     Contacto
                   </li>
                 </Link>
                 <Link
                   href="/contacto"
-                  className="inline-flex mt-4 items-center rounded-sm border border-transparent  px-3 py-1 text-base font-semibold text-white ">
-                  <AiOutlineShoppingCart size={25} />
+                  className="inline-flex items-center px-3 py-1 mt-4 text-base font-semibold text-white border border-transparent rounded-sm ">
+                  <AiOutlineShoppingCart size={ 25 } />
                 </Link>
               </ul>
             </div>
@@ -163,19 +164,22 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className=" w-full flex justify-between px-4  lg:hidden sm:flex-nowrap text-black">
+      <div className="flex justify-between text-black aling-center lg:hidden sm:flex-nowrap">
         <div id="title-color-mobil" className="">
-          <Link href="/" className=" ">
-            <h1 className="text-base sm:text-2xl ">The Guitar</h1>
+          <Link href="/" className="">
+            <h1 className="text-[12px] sm:text-2xl ">The Guitar</h1>
           </Link>
         </div>
-        <div
+        <button
           id="title-color-boton"
-          onClick={handleNav}
-          className="md:hidden cursor-pointer  ">
-          <AiOutlineMenu size={25} />
-        </div>
+          onClick={ handleNav }
+          className="cursor-pointer md:hidden ">
+          <AiOutlineMenu size={ 20 } />
+        </button>
       </div>
+
+
+
     </nav>
   );
 };
