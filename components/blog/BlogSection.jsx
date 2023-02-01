@@ -11,6 +11,7 @@ export default function BlogSection({ post }) {
         alt="imagen de los instrumentos"
         width={300}
         height={200}
+        priority
       />
       <div className="mt-4">
         <p className="text-xl font-semibold text-gray-800">{nombre}</p>

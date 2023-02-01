@@ -13,6 +13,7 @@ const Guitarras = ({ guitarra }) => {
           width={400}
           height={200}
           className="object-cover w-10/12 lg:w-10/12 md:rounded-r-sm"
+          priority
         />
       </div>
       <div className="w-4/12 lg:w-7/12">

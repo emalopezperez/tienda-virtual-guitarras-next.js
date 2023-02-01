@@ -12,6 +12,7 @@ function Header({ nombre, typewriter, img, descripcion, writing, fondoBlog }) {
           width={ 600 }
           height={ 400 }
           alt="imagen header Blog"
+          priority
         />
       ) : (
         <Image
@@ -20,6 +21,7 @@ function Header({ nombre, typewriter, img, descripcion, writing, fondoBlog }) {
           width={ 600 }
           height={ 400 }
           alt="imagen header guitarras"
+          priority
         />
       ) }
 

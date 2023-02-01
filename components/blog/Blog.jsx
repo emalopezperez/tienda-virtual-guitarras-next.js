@@ -11,6 +11,7 @@ const Blog = ({ posts }) => {
         alt="imagen de los instrumentos"
         width={400}
         height={200}
+        priority
       />
       <div className="mt-4">
         <p className="mt-4 mb-4 text-base text-gray-500">{publishedAt}</p>
